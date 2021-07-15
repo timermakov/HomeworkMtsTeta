@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">HomeworkMtsTeta</string>
+    <string name="background_description">Description</string>
+    <string name="star_description">Star</string>
+    <string name="actor_image">Actor Image</string>
+    <string name="navigation_bar_home">Navigation bar home</string>
+    <string name="navigation_bar_profile">Navigation bar profile</string>
 </resources>

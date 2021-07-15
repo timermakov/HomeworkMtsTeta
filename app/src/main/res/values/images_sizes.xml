@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="actors_image_height">196dp</dimen>
+    <dimen name="actors_image_width">150dp</dimen>
+    <dimen name="navigation_bar_height">48dp</dimen>
+</resources>
