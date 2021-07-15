@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_main">
+
+    <ImageView
+        android:id="@+id/backgroundImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/background_description"
+        android:scaleType="fitStart"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationViewBarrier"
+        app:layout_constraintEnd_toStartOf="@+id/mainScrollView"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/background_image" />
+
+    <ScrollView
+        android:id="@+id/mainScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/scroll_layout_shape"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationViewBarrier"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/backgroundImageView"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainConstraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/verticalLeftGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="20dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/verticalRightGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="8dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/horizontalTopGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="32dp" />
+
+            <TextView
+                android:id="@+id/genreTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/genre_shape"
+                android:fontFamily="@font/roboto_regular"
+                android:paddingStart="9dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="9dp"
+                android:paddingBottom="2dp"
+                android:text="@string/genre"
+                android:textColor="@color/black"
+                android:textSize="@dimen/genre"
+                app:layout_constraintStart_toStartOf="@+id/verticalLeftGuideline"
+                app:layout_constraintTop_toTopOf="@+id/horizontalTopGuideline" />
+
+            <TextView
+                android:id="@+id/releaseDateTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/release_date"
+                android:textColor="@color/black"
+                android:textSize="@dimen/release_date"
+                app:layout_constraintBottom_toBottomOf="@+id/genreTextView"
+                app:layout_constraintStart_toEndOf="@+id/genreTextView"
+                app:layout_constraintTop_toTopOf="@+id/genreTextView" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/titleBarrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="genreTextView, releaseDateTextView" />
+
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/title"
+                app:layout_constraintStart_toStartOf="@+id/verticalLeftGuideline"
+                app:layout_constraintTop_toBottomOf="@+id/titleBarrier" />
+
+            <TextView
+                android:id="@+id/ageLimitTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/age_limit_shape"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="center"
+                android:text="@string/age_limit"
+                android:textColor="@color/black"
+                android:textSize="@dimen/age_limit"
+                app:layout_constraintBottom_toBottomOf="@+id/titleTextView"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/starsBarrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:barrierDirection="bottom"
+                app:barrierMargin="8dp"
+                app:constraint_referenced_ids="titleTextView, ageLimitTextView" />
+
+            <ImageView
+                android:id="@+id/firstStar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/star_description"
+                app:layout_constraintStart_toStartOf="@+id/verticalLeftGuideline"
+                app:layout_constraintTop_toBottomOf="@+id/starsBarrier"
+                app:srcCompat="@drawable/ic_star_black" />
+
+            <ImageView
+                android:id="@+id/secondStar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:contentDescription="@string/star_description"
+                app:layout_constraintStart_toEndOf="@+id/firstStar"
+                app:layout_constraintTop_toBottomOf="@+id/starsBarrier"
+                app:srcCompat="@drawable/ic_star_black" />
+
+            <ImageView
+                android:id="@+id/thirdStar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:contentDescription="@string/star_description"
+                app:layout_constraintStart_toEndOf="@+id/secondStar"
+                app:layout_constraintTop_toBottomOf="@+id/starsBarrier"
+                app:srcCompat="@drawable/ic_star_black" />
+
+            <ImageView
+                android:id="@+id/fourthStar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:contentDescription="@string/star_description"
+                app:layout_constraintStart_toEndOf="@+id/thirdStar"
+                app:layout_constraintTop_toBottomOf="@+id/starsBarrier"
+                app:srcCompat="@drawable/ic_star_black" />
+
+            <ImageView
+                android:id="@+id/fifthStar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:contentDescription="@string/star_description"
+                app:layout_constraintStart_toEndOf="@+id/fourthStar"
+                app:layout_constraintTop_toBottomOf="@+id/starsBarrier"
+                app:srcCompat="@drawable/ic_star_white" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/descriptionBarrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:barrierMargin="20dp"
+                app:constraint_referenced_ids="firstStar, titleTextView, ageLimitTextView, genreTextView, releaseDateTextView" />
+
+            <TextView
+                android:id="@+id/descriptionTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/description"
+                android:textColor="@color/black"
+                android:textSize="@dimen/description"
+                app:layout_constraintEnd_toEndOf="@+id/verticalRightGuideline"
+                app:layout_constraintStart_toStartOf="@+id/verticalLeftGuideline"
+                app:layout_constraintTop_toBottomOf="@+id/descriptionBarrier" />
+
+            <TextView
+                android:id="@+id/actorsTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/actors_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/actors_title"
+                app:layout_constraintStart_toStartOf="@+id/verticalLeftGuideline"
+                app:layout_constraintTop_toBottomOf="@+id/descriptionTextView" />
+
+            <HorizontalScrollView
+                android:id="@+id/actorsHorizontalScrollView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingBottom="40dp"
+                app:layout_constraintEnd_toEndOf="@+id/verticalRightGuideline"
+                app:layout_constraintStart_toStartOf="@+id/verticalLeftGuideline"
+                app:layout_constraintTop_toBottomOf="@+id/actorsTitleTextView">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/actorsConstraintLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/firstCardImageView"
+                        android:layout_width="@dimen/actors_image_width"
+                        android:layout_height="@dimen/actors_image_height"
+                        android:contentDescription="@string/actor_image"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/statham" />
+
+                    <TextView
+                        android:id="@+id/firstCardTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/actor_jason_statham"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/actors_name"
+                        app:layout_constraintStart_toStartOf="@+id/firstCardImageView"
+                        app:layout_constraintTop_toBottomOf="@+id/firstCardImageView" />
+
+                    <androidx.constraintlayout.widget.Barrier
+                        android:id="@+id/firstCardBarrier"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:barrierDirection="end"
+                        app:constraint_referenced_ids="firstCardImageView, firstCardTextView" />
+
+                    <!-- ========================================================== -->
+
+                    <ImageView
+                        android:id="@+id/secondCardImageView"
+                        android:layout_width="@dimen/actors_image_width"
+                        android:layout_height="@dimen/actors_image_height"
+                        android:layout_marginStart="10dp"
+                        android:contentDescription="@string/actor_image"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintStart_toEndOf="@+id/firstCardBarrier"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/mccallany" />
+
+                    <TextView
+                        android:id="@+id/secondCardTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/actor_holt_mccallany"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/actors_name"
+                        app:layout_constraintStart_toStartOf="@+id/secondCardImageView"
+                        app:layout_constraintTop_toBottomOf="@+id/secondCardImageView" />
+
+                    <androidx.constraintlayout.widget.Barrier
+                        android:id="@+id/secondCardBarrier"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:barrierDirection="end"
+                        app:constraint_referenced_ids="secondCardImageView, secondCardTextView" />
+
+
+                    <!-- ========================================================== -->
+
+                    <ImageView
+                        android:id="@+id/thirdCardImageView"
+                        android:layout_width="@dimen/actors_image_width"
+                        android:layout_height="@dimen/actors_image_height"
+                        android:layout_marginStart="10dp"
+                        android:contentDescription="@string/actor_image"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintStart_toEndOf="@+id/secondCardBarrier"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/hartnett" />
+
+                    <TextView
+                        android:id="@+id/thirdCardTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/actor_josh_hartnett"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/actors_name"
+                        app:layout_constraintStart_toStartOf="@+id/thirdCardImageView"
+                        app:layout_constraintTop_toBottomOf="@+id/thirdCardImageView" />
+
+                    <androidx.constraintlayout.widget.Barrier
+                        android:id="@+id/thirdCardBarrier"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:barrierDirection="end"
+                        app:constraint_referenced_ids="secondCardImageView, secondCardTextView" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </HorizontalScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/bottomNavigationViewBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="homeButton, profileButton" />
+
+    <ImageView
+        android:id="@+id/homeButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/navigation_bar_height"
+        android:background="@color/white"
+        android:contentDescription="@string/navigation_bar_home"
+        android:scaleType="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/profileButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_home_button" />
+
+    <ImageView
+        android:id="@+id/profileButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/navigation_bar_height"
+        android:background="@color/white"
+        android:contentDescription="@string/navigation_bar_profile"
+        android:scaleType="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/homeButton"
+        app:srcCompat="@drawable/ic_profile_button" />
+
+    <View
+        android:id="@+id/underlineHomeView"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:background="@color/grey_900"
+        android:elevation="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/homeButton"
+        app:layout_constraintEnd_toEndOf="@+id/homeButton"
+        app:layout_constraintStart_toStartOf="@+id/homeButton" />
+
+    <View
+        android:id="@+id/underlineProfileView"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:background="@color/white"
+        android:elevation="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/profileButton"
+        app:layout_constraintEnd_toEndOf="@+id/profileButton"
+        app:layout_constraintStart_toStartOf="@+id/profileButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
