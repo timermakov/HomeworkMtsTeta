@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title">Гнев человеческий</string>
+    <string name="description">Эйч — загадочный и холодный на вид джентльмен, но внутри него пылает жажда справедливости. Преследуя свои мотивы, он внедряется в инкассаторскую компанию, чтобы выйти на соучастников серии многомиллионных ограблений, потрясших Лос-Анджелес. В этой запутанной игре у каждого своя роль, но под подозрением оказываются все. Виновных же обязательно постигнет гнев человеческий.</string>
+    <string name="genre">боевики</string>
+    <string name="release_date">22.04.2021</string>
+    <string name="age_limit">18+</string>
+    <string name="actors_title">Актеры</string>
+    <string name="actor_jason_statham">Джейсон Стэйтем</string>
+    <string name="actor_holt_mccallany">Холт Маккэллани</string>
+    <string name="actor_josh_hartnett">Джош Харнетт</string>
+</resources>
