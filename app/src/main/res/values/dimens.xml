@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="app_padding_normal">16dp</dimen>
+    <dimen name="text_size_genre">10sp</dimen>
+    <dimen name="padding_genre_top">4dp</dimen>
+    <dimen name="padding_genre_bottom">3dp</dimen>
+    <dimen name="padding_genre_start_end">9dp</dimen>
+    <dimen name="text_size_date">12sp</dimen>
+    <dimen name="app_margin_normal">16dp</dimen>
+    <dimen name="text_title_size">20sp</dimen>
+    <dimen name="text_age_restriction_size">14sp</dimen>
+    <dimen name="age_padding_start">10dp</dimen>
+    <dimen name="age_padding_end">4dp</dimen>
+    <dimen name="age_padding_top">13dp</dimen>
+    <dimen name="age_padding_bottom">10dp</dimen>
+    <dimen name="app_margin_small">8dp</dimen>
+    <dimen name="text_description_size">14sp</dimen>
+    <dimen name="text_actors_size">16sp</dimen>
+    <dimen name="text_actor_name_size">12sp</dimen>
+    <dimen name="toolbar_height">70dp</dimen>
+    <dimen name="text_popular_now_size">16sp</dimen>
+    <dimen name="space_between_genres">6dp</dimen>
+</resources>

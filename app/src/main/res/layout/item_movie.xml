@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/previewMovie"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/previewPosterImageView"
+        android:layout_width="150dp"
+        android:layout_height="216dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/card_rounded"
+        android:contentDescription="@string/poster_movie"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/background_image" />
+
+    <TextView
+        android:id="@+id/previewTitleTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="@dimen/app_margin_small"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/previewPosterImageView"
+        app:layout_constraintStart_toStartOf="@+id/previewPosterImageView"
+        app:layout_constraintTop_toBottomOf="@+id/previewPosterImageView"
+        tools:text="Гнев человеческий" />
+
+    <TextView
+        android:id="@+id/previewDescriptionTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ellipsize="end"
+        android:maxLines="6"
+        android:minLines="6"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/previewPosterImageView"
+        app:layout_constraintStart_toStartOf="@+id/previewTitleTextView"
+        app:layout_constraintTop_toBottomOf="@+id/previewTitleTextView"
+        tools:text="Эйч — загадочный и холодный на вид джентльмен, но внутри него пылает жажда справедливости. Преследуя..." />
+
+    <ImageView
+        android:id="@+id/previewFirstStar"
+        android:layout_width="14dp"
+        android:layout_height="13dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="55dp"
+        android:src="@drawable/ic_star_black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/previewDescriptionTextView"
+        app:layout_constraintTop_toBottomOf="@+id/previewDescriptionTextView"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/previewSecondStar"
+        android:layout_width="14dp"
+        android:layout_height="13dp"
+        android:src="@drawable/ic_star_black"
+        app:layout_constraintStart_toEndOf="@+id/previewFirstStar"
+        app:layout_constraintTop_toTopOf="@+id/previewFirstStar"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/previewThirdStar"
+        android:layout_width="14dp"
+        android:layout_height="13dp"
+        android:layout_marginBottom="55dp"
+        android:src="@drawable/ic_star_black"
+        app:layout_constraintStart_toEndOf="@+id/previewSecondStar"
+        app:layout_constraintTop_toTopOf="@+id/previewFirstStar"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/previewFourthStar"
+        android:layout_width="14dp"
+        android:layout_height="13dp"
+        android:src="@drawable/ic_star_black"
+        app:layout_constraintStart_toEndOf="@+id/previewThirdStar"
+        app:layout_constraintTop_toTopOf="@+id/previewFirstStar"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/previewFifthStar"
+        android:layout_width="14dp"
+        android:layout_height="13dp"
+        android:src="@drawable/ic_star_white"
+        app:layout_constraintStart_toEndOf="@+id/previewFourthStar"
+        app:layout_constraintTop_toTopOf="@+id/previewFirstStar"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/previewAgeLimitTextView"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="52dp"
+        android:background="@drawable/age_limit_shape"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/previewPosterImageView"
+        tools:ignore="SmallSp"
+        tools:text="18+" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
