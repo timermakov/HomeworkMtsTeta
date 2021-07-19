@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="text_genre">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_genre</item>
+        <item name="android:background">@drawable/genre_shape</item>
+        <item name="android:paddingTop">@dimen/padding_genre_top</item>
+        <item name="android:paddingBottom">@dimen/padding_genre_bottom</item>
+        <item name="android:paddingStart">@dimen/padding_genre_start_end</item>
+        <item name="android:paddingEnd">@dimen/padding_genre_start_end</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="text_actor_name">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_actor_name_size</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginTop">12dp</item>
+    </style>
+</resources>
