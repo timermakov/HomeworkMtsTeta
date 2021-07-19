@@ -1,4 +1,4 @@
-package com.timermakov.homeworkmtsteta.recyclerView
+package com.timermakov.homeworkmtsteta.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
