@@ -1,13 +1,15 @@
-package com.timermakov.homeworkmtsteta
+package com.timermakov.homeworkmtsteta.activities
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.timermakov.homeworkmtsteta.R
+import com.timermakov.homeworkmtsteta.adapters.GenreAdapter
+import com.timermakov.homeworkmtsteta.adapters.MoviesAdapter
 import com.timermakov.homeworkmtsteta.dto.MovieDto
 import com.timermakov.homeworkmtsteta.movies.MoviesDataSourceImpl
-import com.timermakov.homeworkmtsteta.recyclerView.GenreAdapter
-import com.timermakov.homeworkmtsteta.recyclerView.MoviesAdapter
+import com.timermakov.homeworkmtsteta.movies.MoviesModel
 
 class MainActivity : AppCompatActivity() {
 
