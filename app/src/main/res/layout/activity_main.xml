@@ -1,104 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".activities.MainActivity">
 
-    <ImageView
-        android:id="@+id/searchButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="21dp"
-        android:contentDescription="@string/search_button"
-        android:src="@drawable/ic_search"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/popularNowTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="22dp"
-        android:text="@string/popular_now"
-        android:textColor="@color/black"
-        android:textSize="@dimen/text_popular_now_size"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchButton" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/popularGenreRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="12dp"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/popularNowTextView"
-        tools:listitem="@layout/item_genre" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/moviesRecyclerView"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainActivityConstraintLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/mainActivityBottomNavigationView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/mainActivityBottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itemIconTint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_navigation_menu" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/mainActivityGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/homeButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/popularGenreRecyclerView"
-        app:spanCount="2"
-        tools:listitem="@layout/item_movie" />
+        app:layout_constraintGuide_percent="0.5" />
 
     <ImageView
-        android:id="@+id/homeButton"
+        android:id="@+id/bottomNavigationMain"
         android:layout_width="0dp"
-        android:layout_height="@dimen/navigation_bar_height"
-        android:background="@color/white"
-        android:contentDescription="@string/navigation_bar_home"
-        android:scaleType="center"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/profileButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_home_button" />
+        android:src="@drawable/navigation_underline"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/mainActivityGuideline" />
 
     <ImageView
-        android:id="@+id/profileButton"
+        android:id="@+id/bottomNavigationProfile"
         android:layout_width="0dp"
-        android:layout_height="@dimen/navigation_bar_height"
-        android:background="@color/white"
-        android:contentDescription="@string/navigation_bar_profile"
-        android:scaleType="center"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/homeButton"
-        app:srcCompat="@drawable/ic_profile_button" />
-
-    <View
-        android:id="@+id/underlineHomeView"
-        android:layout_width="0dp"
-        android:layout_height="3dp"
-        android:background="@color/grey_900"
-        android:elevation="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/homeButton"
-        app:layout_constraintEnd_toEndOf="@+id/homeButton"
-        app:layout_constraintStart_toStartOf="@+id/homeButton" />
-
-    <View
-        android:id="@+id/underlineProfileView"
-        android:layout_width="0dp"
-        android:layout_height="3dp"
-        android:background="@color/white"
-        android:elevation="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/profileButton"
-        app:layout_constraintEnd_toEndOf="@+id/profileButton"
-        app:layout_constraintStart_toStartOf="@+id/profileButton" />
+        android:src="@drawable/navigation_underline"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/mainActivityGuideline" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

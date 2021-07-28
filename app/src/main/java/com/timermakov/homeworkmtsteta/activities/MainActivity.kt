@@ -1,22 +1,15 @@
 package com.timermakov.homeworkmtsteta.activities
 
 import android.os.Bundle
-import android.widget.Toast
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.timermakov.homeworkmtsteta.R
-import com.timermakov.homeworkmtsteta.adapters.GenreAdapter
-import com.timermakov.homeworkmtsteta.adapters.MoviesAdapter
-import com.timermakov.homeworkmtsteta.dto.MovieDto
-import com.timermakov.homeworkmtsteta.movies.MoviesDataSourceImpl
-import com.timermakov.homeworkmtsteta.movies.MoviesModel
+import com.timermakov.homeworkmtsteta.fragments.MainFragment
+import com.timermakov.homeworkmtsteta.fragments.ProfileFragment
+import com.timermakov.homeworkmtsteta.functions.replaceFragment
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var recyclerViewGenres: RecyclerView
-    private lateinit var recyclerViewMovies: RecyclerView
-
-    private val moviesModel = MoviesModel(MoviesDataSourceImpl())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,54 +21,26 @@ class MainActivity : AppCompatActivity() {
         initViews()
     }
 
-    // initialization
     private fun initViews() {
-        recyclerViewGenres = findViewById(R.id.popularGenreRecyclerView)
-        val adapterGenres = GenreAdapter(getGenres(), this::adapterGenreListener)
-        recyclerViewGenres.adapter = adapterGenres
-
-        recyclerViewMovies = findViewById(R.id.moviesRecyclerView)
-        val adapterMovies = MoviesAdapter(moviesModel.getMovies(), this::adapterMovieListener, this)
-        recyclerViewMovies.adapter = adapterMovies
-    }
-
-    // get a list of different genres
-    private fun getGenres(): MutableList<String> {
-        return mutableListOf(
-            "боевики",
-            "драмы",
-            "комедии",
-            "артхаус",
-            "мелодрамы",
-            "приключения",
-            "мультики",
-            "детективы",
-            "криминал",
-            "документальное",
-            "фантастика",
-            "ужасы",
-            "мистика",
-            "триллеры"
-        )
-    }
-
-    // make a message after click on movie item
-    private fun adapterMovieListener(item: MovieDto) {
-        showToast(item.title)
-    }
-
-    // make a message after click on genre item
-    private fun adapterGenreListener(item: String) {
-        showToast(item)
-    }
-
-    // show a floating message
-    private fun showToast(message: String?) {
-        when {
-            message.isNullOrEmpty() -> {
-                showToast("Пустое сообщение")
+        findViewById<View>(R.id.bottomNavigationMain).visibility = View.VISIBLE
+        findViewById<View>(R.id.bottomNavigationProfile).visibility = View.INVISIBLE
+        replaceFragment(this, MainFragment(), false)
+        findViewById<BottomNavigationView>(R.id.mainActivityBottomNavigationView).setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.main -> {
+                    replaceFragment(this, MainFragment(), false)
+                    findViewById<View>(R.id.bottomNavigationMain).visibility = View.VISIBLE
+                    findViewById<View>(R.id.bottomNavigationProfile).visibility = View.INVISIBLE
+                    true
+                }
+                R.id.profile -> {
+                    replaceFragment(this, ProfileFragment(), false)
+                    findViewById<View>(R.id.bottomNavigationMain).visibility = View.INVISIBLE
+                    findViewById<View>(R.id.bottomNavigationProfile).visibility = View.VISIBLE
+                    true
+                }
+                else -> false
             }
-            else -> Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
         }
     }
 
