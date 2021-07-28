@@ -10,24 +10,27 @@
         android:id="@+id/posterImageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/background_description"
-        android:adjustViewBounds="true"
         android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/background_image" />
+        android:src="@drawable/background_image"
+        android:adjustViewBounds="true"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/scrollLayoutBackground"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="224dp"
+        android:background="@drawable/scroll_layout_shape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/posterImageView" />
 
     <ScrollView
         android:id="@+id/mainScrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="220dp"
-        android:background="@drawable/scroll_layout_shape"
+        android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/posterImageView">
+        app:layout_constraintTop_toTopOf="@id/scrollLayoutBackground">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/mainConstraintLayout"
@@ -209,6 +212,7 @@
                 android:layout_marginTop="@dimen/app_margin_normal"
                 android:orientation="horizontal"
                 android:paddingBottom="46dp"
+                android:scaleType="fitXY"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintTop_toBottomOf="@+id/actorsTitleTextView"
                 tools:listitem="@layout/item_actor" />
