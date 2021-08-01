@@ -86,7 +86,7 @@
                 app:constraint_referenced_ids="genreTextView, releaseDateTextView" />
 
             <TextView
-                android:id="@+id/previewTitleTextView"
+                android:id="@+id/titleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -108,7 +108,7 @@
                 android:text="@string/age_limit"
                 android:textColor="@color/black"
                 android:textSize="@dimen/age_limit"
-                app:layout_constraintBottom_toBottomOf="@+id/previewTitleTextView"
+                app:layout_constraintBottom_toBottomOf="@+id/titleTextView"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <androidx.constraintlayout.widget.Barrier
@@ -118,7 +118,7 @@
                 android:orientation="horizontal"
                 app:barrierDirection="bottom"
                 app:barrierMargin="8dp"
-                app:constraint_referenced_ids="previewTitleTextView, ageLimitTextView" />
+                app:constraint_referenced_ids="titleTextView, ageLimitTextView" />
 
             <ImageView
                 android:id="@+id/firstStar"
@@ -175,7 +175,7 @@
                 android:layout_height="wrap_content"
                 app:barrierDirection="bottom"
                 app:barrierMargin="20dp"
-                app:constraint_referenced_ids="firstStar, previewTitleTextView, ageLimitTextView, genreTextView, releaseDateTextView" />
+                app:constraint_referenced_ids="firstStar, titleTextView, ageLimitTextView, genreTextView, releaseDateTextView" />
 
             <TextView
                 android:id="@+id/descriptionTextView"
@@ -337,7 +337,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/profileButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_home_button" />
+        app:srcCompat="@drawable/ic_main_button" />
 
     <ImageView
         android:id="@+id/profileButton"

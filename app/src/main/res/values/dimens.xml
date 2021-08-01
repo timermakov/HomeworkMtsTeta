@@ -20,4 +20,8 @@
     <dimen name="toolbar_height">70dp</dimen>
     <dimen name="text_popular_now_size">16sp</dimen>
     <dimen name="space_between_genres">6dp</dimen>
+
+    <dimen name="profile_name_size">20sp</dimen>
+    <dimen name="profile_mail_size">14sp</dimen>
+    <dimen name="button_corner_radius">4dp</dimen>
 </resources>

@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.ProfileFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/profileNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="64dp"
+                android:text="@string/profile_name_example"
+                android:textColor="@color/black"
+                android:textSize="@dimen/profile_name_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/profileMailTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/profile_email_example"
+                android:textColor="@color/black"
+                android:textSize="@dimen/profile_mail_size"
+                app:layout_constraintStart_toStartOf="@+id/profileNameTextView"
+                app:layout_constraintTop_toBottomOf="@+id/profileNameTextView" />
+
+            <ImageView
+                android:id="@+id/profilePhotoImageView"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/profile_photo_background"
+                app:layout_constraintBottom_toBottomOf="@+id/profileMailTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/profileNameTextView" />
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="28dp"
+                android:src="@drawable/profile_photo_smile"
+                app:layout_constraintBottom_toBottomOf="@+id/profilePhotoImageView"
+                app:layout_constraintEnd_toEndOf="@+id/profilePhotoImageView"
+                app:layout_constraintStart_toStartOf="@+id/profilePhotoImageView"
+                app:layout_constraintTop_toTopOf="@+id/profilePhotoImageView" />
+
+            <TextView
+                android:id="@+id/profileInterestsTextView"
+                style="@style/profile_title"
+                android:text="@string/profile_interests_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profilePhotoImageView" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/profileInterestsRecyclerView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/profileInterestsTextView"
+                app:layout_constraintTop_toBottomOf="@+id/profileInterestsTextView"
+                tools:listitem="@layout/item_genre" />
+
+            <TextView
+                android:id="@+id/profilePersonalDataTextView"
+                style="@style/profile_title"
+                android:text="@string/profile_personal_data_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profileInterestsRecyclerView" />
+
+            <EditText
+                android:id="@+id/profileNameEditText"
+                style="@style/profile_edittext"
+                android:hint="@string/profile_name_hint"
+                android:inputType="textCapSentences"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profilePersonalDataTextView" />
+
+            <EditText
+                android:id="@+id/profilePasswordEditText"
+                style="@style/profile_edittext"
+                android:hint="@string/profile_password_hint"
+                android:inputType="textPassword"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profileNameEditText" />
+
+            <EditText
+                android:id="@+id/profileEmailEditText"
+                style="@style/profile_edittext"
+                android:hint="@string/profile_email_hint"
+                android:inputType="textEmailAddress"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profilePasswordEditText" />
+
+            <EditText
+                android:id="@+id/profilePhoneEditText"
+                style="@style/profile_edittext"
+                android:hint="@string/profile_phone_hint"
+                android:inputType="phone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profileEmailEditText" />
+
+            <TextView
+                android:id="@+id/profileSettingsTextView"
+                style="@style/profile_title"
+                android:text="@string/profile_settings_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profilePhoneEditText" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/profileNotificationsButton"
+                style="@style/settings_button"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profileSettingsTextView">
+
+                <TextView
+                    style="@style/settings_button_textview"
+                    android:text="@string/profile_settings_notifications"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:src="@drawable/ic_profile_arrow"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/profilePrivacyButton"
+                style="@style/settings_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profileNotificationsButton">
+
+                <TextView
+                    style="@style/settings_button_textview"
+                    android:text="@string/profile_settings_privacy"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:src="@drawable/ic_profile_arrow"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/profileThemeButton"
+                style="@style/settings_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profilePrivacyButton">
+
+                <TextView
+                    style="@style/settings_button_textview"
+                    android:text="@string/profile_settings_theme"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:src="@drawable/ic_profile_arrow"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/profileLanguageButton"
+                style="@style/settings_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profileThemeButton">
+
+                <TextView
+                    style="@style/settings_button_textview"
+                    android:text="@string/profile_settings_language"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:src="@drawable/ic_profile_arrow"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/profileMemoryButton"
+                style="@style/settings_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profileLanguageButton">
+
+                <TextView
+                    style="@style/settings_button_textview"
+                    android:text="@string/profile_settings_memory"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:src="@drawable/ic_profile_arrow"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/profileAppTextView"
+                style="@style/profile_title"
+                android:text="@string/profile_app_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profileMemoryButton" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/profileAskButton"
+                style="@style/settings_button"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profileAppTextView">
+
+                <TextView
+                    style="@style/settings_button_textview"
+                    android:text="@string/profile_app_ask"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:src="@drawable/ic_profile_arrow"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/profileProblemButton"
+                style="@style/settings_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profileAskButton">
+
+                <TextView
+                    style="@style/settings_button_textview"
+                    android:text="@string/profile_app_problem"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:src="@drawable/ic_profile_arrow"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/profileExitButton"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="50dp"
+                android:backgroundTint="@color/gray"
+                android:text="@string/profile_exit_button"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:cornerRadius="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profileProblemButton" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

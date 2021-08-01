@@ -1,7 +1,6 @@
 package com.timermakov.homeworkmtsteta.adapters
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,16 +9,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.timermakov.homeworkmtsteta.R
-import com.timermakov.homeworkmtsteta.calculateImageSizeInPX
 import com.timermakov.homeworkmtsteta.dto.MovieDto
 
 class MoviesAdapter(
     private val dataList: List<MovieDto>,
     private val listener: (item: MovieDto) -> Unit,
-    context: Context
+    private val imgMetrics: Pair<Int, Int>?
 ) : RecyclerView.Adapter<MoviesAdapter.MoviesHolder>() {
-
-    private val imgMetrics = calculateImageSizeInPX(context)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false)
@@ -69,7 +65,7 @@ class MoviesAdapter(
     // make connections with XML elements
     class MoviesHolder(view: View) : RecyclerView.ViewHolder(view) {
         val poster: ImageView = view.findViewById(R.id.previewPosterImageView)
-        val title: TextView = view.findViewById(R.id.previewTitleTextView)
+        val title: TextView = view.findViewById(R.id.titleTextView)
         val description: TextView = view.findViewById(R.id.previewDescriptionTextView)
         val rating: List<ImageView> = listOf(
             view.findViewById(R.id.previewFirstStar),
